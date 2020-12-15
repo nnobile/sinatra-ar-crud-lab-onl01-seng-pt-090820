@@ -12,14 +12,14 @@ class ApplicationController < Sinatra::Base
   end
   
   # New - loads a form
-  get 'articles/new' do
+  get '/articles/new' do
     erb :"articles/new"
   end
   
   # Create - processes the form and creates an article
   post '/articles' do
     article = Article.create(params)
-    redirect "articles"
+    redirect '/articles/#{article.id}'
   end
   
   # Index - loads all of the articles
